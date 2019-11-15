@@ -322,43 +322,146 @@
             // doudou.eat('骨头');
             // doudou.look();
 
+        //  小练习
 
-
-
-
-
-
-
-
-        // var a = {
-        //         i: 1,
-        //         toString() {
-        //             return a.i++;
-        //         }
-        //     }
-        //     console.log(a)
-        //     if( a == 1 && a == 2 && a == 3 ) {
-        //         console.log(1);
-        //     }
-
-
-
-
+            // var a = {
+            //         i: 1,
+            //         toString() {
+            //             return a.i++;
+            //         }
+            //     }
+            //     console.log(a)
+            //     if( a == 1 && a == 2 && a == 3 ) {
+            //         console.log(1);
+            //     }
 
             //             var a = new Proxy({ i: 0 }, {
             //     get: (target, name) => name === Symbol.toPrimitive ? () => ++target.i : target[name],
             // });
             // console.log(a == 1 && a == 2 && a == 3);
 
-
-
-
-
-
-
-
          /*************************************************************************************************************************************/
-         /*************************************************************************************************************************************/
+
+
+            // 遍历器 && 迭代器
+
+            // const colors = ['red','blue','green']
+            //
+            // for (const color of colors){
+            //     console.log(color);
+            //     // 输出 每一个元素
+            //     // one.html?_ijt=fb8jb17c6muttqm6o8a2qlkdq9:351 red
+            //     // one.html?_ijt=fb8jb17c6muttqm6o8a2qlkdq9:351 blue
+            //     // one.html?_ijt=fb8jb17c6muttqm6o8a2qlkdq9:351 green
+            // }
+            //
+            // // 遍历器：就是一个对象，他有next方法，返回给我们需要的数据，可遍历对象那个就是部署了 Symbol.iterator 的属性的对象，他会返回给
+            // // 我们一个遍历器，当我们调用遍历 对象的时候就会返回我们相应的值
+            //
+            // const iterator = colors[Symbol.iterator]();
+            //
+            // console.log(iterator); // 这里的 iterator 就是遍历器了
+            //
+            // // 输出为  会发现其中就有 next() 方法
+            //
+            //     // Array Iterator {}
+            //     // __proto__: Array Iterator
+            //     // next: ƒ next()
+            //     // Symbol(Symbol.toStringTag): "Array Iterator"
+            //     // __proto__: Object
+            // console.log(iterator.next()); // 输出 这个遍历器的 next() 方法 第一次调用
+            // // 输出为
+            //     //     {value: "red", done: false}
+            //     //     done: false
+            //     //     value: "red"
+            //     //     __proto__: Object
+            // console.log(iterator.next()); // 输出 这个遍历器的 next() 方法 第二次调用
+            // // 输出为
+            //     // {value: "blue", done: false}
+            //     // done: false
+            //     // value: "blue"
+            //     // __proto__: Object
+            //
+            // console.log(iterator.next()); // 输出 这个遍历器的 next() 方法 第三次调用
+            // // 输出为
+            //     // {value: "green", done: false}
+            //     // done: false
+            //     // value: "green"
+            //     // __proto__: Object
+            //
+            // console.log(iterator.next()); // 输出 这个遍历器的 next() 方法 第四次调用
+            // // 输出为
+            //     // {value: undefined, done: true}
+            //     // done: true
+            //     // value: undefined
+            //     // __proto__: Object
+            //
+            // console.log(colors.entries().next()); // 内建的 方法
+            //
+            // // 输出 结果和上边的有所不同
+            //     // {value: Array(2), done: false}
+            //     // done: false
+            //     // value: (2) [0, "red"]
+            //     // __proto__: Object
+            // console.log(colors.keys().next());  // 返回索引了
+            //
+            // // 输出 结果和上边的有所不同
+            //     // {value: 0, done: false}
+            //     // done: false
+            //     // value: 0
+            //     // __proto__: Object
+            // console.log(colors.values().next()); // 返回当前值
+            // // 输出 结果和上边的有所不同
+            //     // {value: "red", done: false}
+            //     // done: false
+            //     // value: "red"
+            //     // __proto__: Object
+
+            // 原理
+
+                // function f() {
+                //     let i = 0
+                //     let items =  this;
+                //     return{
+                //         next(){
+                //             const done = i>= items.length;
+                //             const value = done ? undefined : items[i++]
+                //             return {
+                //                 value,
+                //                 done
+                //             }
+                //         }
+                //     }
+                // }
+
+
+
+
+        // 数组 Array Set Map
+
+        // 生成器  Generator
+
+        function* haha() {
+            yield 'res';
+            yield 'blue'
+        }
+        const colors = haha()
+        console.log(colors); // 当前的输出状态 还是 suspended（暂停的）
+        // __proto__: Generator
+        //     [[GeneratorLocation]]: one.html?_ijt=fb8jb1…ttqm6o8a2qlkdq9:444
+        //     [[GeneratorStatus]]: "suspended"
+        //     [[GeneratorFunction]]: ƒ* haha()
+        //     [[GeneratorReceiver]]: Window
+        //     [[Scopes]]: Scopes[3]
+
+        console.log(haha().next());   // 调用这个 也就是上边的 遍历器 && 迭代器
+        // {value: "res", done: false}
+        // done: false
+        // value: "res"
+        // __proto__: Object
+
+
+        /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
