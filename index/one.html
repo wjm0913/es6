@@ -16,7 +16,7 @@
             //     age:20
             // }
             // const persons = Object.freeze(person) // es5里面的不允许改变对象里面的属性！
-            
+
         /*************************************************************************************************************************************/
 
             // let const 理解
@@ -43,7 +43,7 @@
             // console.log(kkkarr);
 
         /*************************************************************************************************************************************/
-        
+
             // 简单分析 this 指向问题
 
             //  箭头函数  是没有 this 值得 简单说就是他在执行的时候继承了  父作用域的 this 定义的时候就已经被指定了this
@@ -57,10 +57,10 @@
             //             console.log(`${this.name}+++++${boby}`)
             //         })
             //     }
-                
+
             // }
 
-            
+
             // const student = {
             //     name:'xiaoMing',
             //     names:['hong','lan','huang',],
@@ -71,7 +71,7 @@
             //             console.log(`${this.name}+++++${boby}`)
             //         })
             //     }
-                
+
             // }
 
             // student.Method()
@@ -79,7 +79,7 @@
             // 1、作为构造函数，或一个方法需要绑定到对象上
             // 2、当需要真正的this的时候
             // 3、当你要使用 arguments 参数的时候
-            
+
 
 
         /*************************************************************************************************************************************/
@@ -92,7 +92,7 @@
             // alert(str.trim());   Runoob
 
         /*************************************************************************************************************************************/
-        
+
             // // 字符串 格式
             // const strings =  '121213131123331'
             // strings.startsWith() // 开头 查找   parameter2 可以定义在第几位开始
@@ -101,80 +101,270 @@
             // strings.repeat()     // 复制调用的 字符串
 
          /*************************************************************************************************************************************/
-          
+
             // 循环 for ... of ...
 
-            const newArr = ['小明','小兰','小绿'] 
-            const newArr1 = [{name:'小明',age:18},{name:'小兰',age:45},{name:'小绿',age:18}] 
+            // const newArr = ['小明','小兰','小绿']
+            // const newArr1 = [{name:'小明',age:18},{name:'小兰',age:45},{name:'小绿',age:18}]
 
 
             // newArr.forEach(name=>{})  // forEach 循环不能被打断 break continue
 
-            
+
             // newArr.describe='asdas'  // for in 也能把 后增加的属性也会循环出来。
 
             // Array.prototype.newArr = function(){ } // for in 也能把 数组原型也会循环出来。
 
-            // for (let key in newArr) {console.log(newArr[key])} // 
+            // for (let key in newArr) {console.log(newArr[key])} //
 
             // for (let key of newArr) {console.log(key)} // 属性值 而不是下标  for ... of ...  可以解决 for ... in ... 刚出现的问题
 
-            // for( let [index,name] of newArr.entries() ){  
+            // for( let [index,name] of newArr.entries() ){
             //     // entries() 方法返回一个数组的迭代对象，该对象包含数组的键值对 (key/value)。
             //     // 根据 entries 方法返回的数据接口  就可以使用 数组的解构方法 同时取到所需的值
             //     console.log(index,name)
             // }
 
          /*************************************************************************************************************************************/
-           
-            // 数组的 新增方法   
-            
-            // Array.from() arguments || 字符串 || dom 节点类数组 转换成真正的数组   
-            
+
+            // 数组的 新增方法
+
+            // Array.from() arguments || 字符串 || dom 节点类数组 转换成真正的数组
+
             // Array.of() 主要弥补了 new Array() 构造函数的不足 ，  Array.of() 传入 一个参数 也会返回当前参数的数组
-           
-            // .find()  
+
+            // .find()
             // const newArr2 = newArr1.find((element,index,array)=>{
             //         if (element.age === 18) {
-            //             return 
+            //             return
             //         }
             //     }
-            // ) 
+            // )
             // console.log(newArr2,newArr1)  // find() 对于空数组，函数是不会执行的 // find() 并没有改变数组的原始值。
             // 注意  警告：：：：： 这个方法  只会返回  数组中第一个符合的条件的 元素 不会在 向下 执行了  这也是和  .filter()主要的  区别  返回全部结果仍然是数组。
-          
+
             // .findIndex 返回 下标的 方法
             // const newArr3 = newArr1.findIndex((element,index,array)=>{
             //         if (element.age === 18) {
-            //             return 
+            //             return
             //         }
             //     })
-            // console.log(newArr3,newArr1)  
+            // console.log(newArr3,newArr1)
             // 注意  警告：：：：： 这个方法  只会返回  数组中第一个符合的条件的 元素 不会在 向下 执行了
 
             //  const newArr4 =  newArr.some(fruit =>fruit.age >0)  // 有一个 满足测试函数 返回  true
             //  newArr.every()   //  所有元素都 满足测试函数 返回  true
-        
+
             // Array.prototype.includes  方法返回一个布尔值，表示某个数组是否包含给定的值，
             // [1, 2, 3].includes(2)     // true        [1, 2, NaN].includes(NaN) // true
             // 该方法的第二个参数表示搜索的起始位置，默认为0。如果第二个参数为负数，则表示倒数的位置，如果这时它大于数组长度（比如第二个参数为-4，但数组长度为3），则会重置为从0开始。
-            
-            const flatArr = ['小明','小兰','小绿',['1','2',['4','5']]] 
 
-            // .flat()  // 用于将嵌套的数组“拉平”，变成一维的数组。该方法返回一个新数组，对原数据没有影响
-            const flatArr1 = flatArr.flat()
-            const flatArr2 = flatArr.flat(2)
-            console.log(flatArr1,flatArr2,flatArr)
+            const flatArr = ['小明','小兰','小绿',['1','2',['4','5']]]
+
+            // .flat()  // 用于将嵌套的数组“拉平”，变成一维的数组。该方法返回一个新数组，对原数据没有影响  会跳过空位
+            // const flatArr1 = flatArr.flat()   // 默认降1层数组
+            // const flatArr2 = flatArr.flat(2)  // 参数为要降维的层数  Infinity 关键字作为参数时 多少层数组都会降维到1层
+            // console.log(flatArr1,flatArr2,flatArr)
+            // const result = newArr1.some(v=>v.age>2)  // 数组里面只要有 满足匹配函数的存在就返回 true
+            // const result = newArr1.every(v=>v.age>17)   // 数组里面 都要满足 匹配函数的 的条件 才会返回 true
+            // console.log(result)
+         /*************************************************************************************************************************************/
+
+            // var a = {i:1,toString(){return a.i++;}}
+            // console.log(a)
+            // console.log(a)
+            // 扩展运算符
+            // var aa= ['zhaofei']
+            // console.log([...aa[0]])
+        // 父元素定义 后 子元素定义 超出省略
+        // width: auto;
+        // max-width: 100%;
+
+
+
+            // let aa = ['as','af','ag']
+            // let bb = ['1','3','4']
+            // let cc= {
+            //     [aa.shift()]:bb.shift(),
+            //     [aa.shift()]:bb.shift(),
+            //     [aa.shift()]:bb.shift(),
+            // };
+            // console.log(cc);
+
+
+        // es6  新增数据类型 Symbol 一种新的原始数据类型Symbol(标志),表示独一无二的值，他是js的第七种数据类型，前六种是: undefined ，null ，布尔值（Boolean），字符串（String）数值（Number），对象（Object）。
+        // symbol值通过Symbol函数生成，也就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种是新增的symbol类型，凡是属性名属于symbol类型，就都是独一无二的，可以保证不会与其他属性名产生冲突
+
+        // // 举例 一个类中有重复的 key 值。怎么解决
+        // const Human = {
+        //     'xiaoming':{'age':20},
+        //     // 'xiaoming':{'age':50,}  出现同名时  属性会被覆盖问题！
+        // };
+        //
+        // const Human2 = {
+        //    [Symbol('xiaoming')] :{'age':20},
+        //    [Symbol('xiaoming')] :{'age':50}
+        // }
+        //
+        // console.log(Human2);
+        //     // 输出 后是这个样子的，
+        //         // Symbol(xiaoming): {age: 20}
+        //         // Symbol(xiaoming): {age: 50}
+        // // Object.keys(Human2) // 不行
+        // // Object.getOwnPropertyNames(Human2) // 不行
+        // // 普通的 调用 方法 已经取不到 Symbol 为属性名的值了
+        //
+        // const SymbolList =  Object.getOwnPropertySymbols(Human2); // 用 特有的方法 取到 后在 map
+        // const aa =  SymbolList.map(ele=>Human2[ele]);
+        // console.log(aa);
+
+
+        // es5 && ea6 类定义的 不同之处
+
+            // es5
+
+            // function User(name, sex , age ) {
+            //     this.name = name;
+            //     this.sex = sex;
+            //     this.age = age
+            // }
+            //
+            // User.prototype.like = function () {
+            //   console.log(this.name + this.age+'岁喜欢吃鱼')
+            // };
+
+
+            // es6
+
+            // class User{
+            //     constructor( name, sex, age ){
+            //         this.name = name;
+            //         this.sex = sex;
+            //         this.age = age
+            //     }
+            //
+            //     like(){
+            //         console.log(this.name + this.age+'岁喜欢吃鱼');
+            //     }
+            //
+            //     // 静态方法 ，只能是类  User 自己调用，实例是不能 调用的
+            //     static noLike(){
+            //         `${this.name}不喜欢吃鱼！`
+            //     }
+            //
+            //      // set get 方法
+            //
+            //     set gitHub(v){
+            //         this.gitname = v
+            //     }
+            //
+            //     get gitHub(){
+            //         return `alalalalalal${this.gitname}`
+            //     }
+            // }
+            //
+            //
+            // // 实例  通用部分
+            // const xiaoMing = new User('小明','男',20);
+            // // 实例2
+            // const xiaoHong = new User('小红','女',19);
+            //
+            // xiaoMing.gitname = '我是set方法存储 进来的，哈哈哈';
+            // console.log(xiaoMing.gitname);  // 我是 get 方法 取出来的啊
+            //
+            // xiaoHong.like();
+            // xiaoMing.like();
+            //
+            //
+            //
+            // // 类的 集成
+            //
+            // class Www {
+            //     constructor(name){
+            //         this.name = name;
+            //         this.likeEat = []
+            //     }
+            //
+            //     eat(food){
+            //         this.likeEat.push(food)
+            //     }
+            // }
+            //
+            // // es5 继承方法 例
+            //
+            //     // function Dog() {
+            //     //     Www.call(this,name,age);  // 这里 也就是继类的 方法
+            //     //     this.name = name;
+            //     //     this.age = age
+            //     // }
+            //     // Dog.prototype = new Www(); //  Dog 的原型对象改成了 Www 的实例 原型对象的 constructor 就会 发生改变，so 要指定原型对象还是 Dog
+            //     //
+            //     // Dog.prototype.constructor = Dog; // 保证 不会出错
+            //
+            // // es6
+            // class Dog extends Www {
+            //     constructor(name,age){
+            //         super(); //  这里就相当于 es5 中 call 方法继承的 写法了 同时 完成 保证原型对象不会 出错
+            //         this.name = name;
+            //         this.age = age
+            //     }
+            //
+            //     barks(){
+            //         console.log('汪汪汪');
+            //     }
+            //     look(){
+            //         console.log(this.likeEat)
+            //     }
+            // }
+            //
+            // const doudou = new Dog('豆豆',2)
+            // doudou.barks();
+            // doudou.eat('骨头');
+            // doudou.look();
+
+
+
+
+
+
+
+
+
+        // var a = {
+        //         i: 1,
+        //         toString() {
+        //             return a.i++;
+        //         }
+        //     }
+        //     console.log(a)
+        //     if( a == 1 && a == 2 && a == 3 ) {
+        //         console.log(1);
+        //     }
+
+
+
+
+
+            //             var a = new Proxy({ i: 0 }, {
+            //     get: (target, name) => name === Symbol.toPrimitive ? () => ++target.i : target[name],
+            // });
+            // console.log(a == 1 && a == 2 && a == 3);
+
+
+
+
+
+
+
 
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
-         /*************************************************************************************************************************************/
-         
-         
-      
+
+
+
     </script>
 </body>
 </html>
