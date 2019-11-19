@@ -441,33 +441,78 @@
 
         // 生成器  Generator
 
-        function* haha() {
-            yield 'res';
-            yield 'blue'
-        }
-        const colors = haha()
-        console.log(colors); // 当前的输出状态 还是 suspended（暂停的）
-        // __proto__: Generator
-        //     [[GeneratorLocation]]: one.html?_ijt=fb8jb1…ttqm6o8a2qlkdq9:444
-        //     [[GeneratorStatus]]: "suspended"
-        //     [[GeneratorFunction]]: ƒ* haha()
-        //     [[GeneratorReceiver]]: Window
-        //     [[Scopes]]: Scopes[3]
+        // function* haha() {
+        //     yield 'res';
+        //     yield 'blue'
+        // }
+        // const colors = haha()
+        // console.log(colors); // 当前的输出状态 还是 suspended（暂停的）
+        // // __proto__: Generator
+        // //     [[GeneratorLocation]]: one.html?_ijt=fb8jb1…ttqm6o8a2qlkdq9:444
+        // //     [[GeneratorStatus]]: "suspended"
+        // //     [[GeneratorFunction]]: ƒ* haha()
+        // //     [[GeneratorReceiver]]: Window
+        // //     [[Scopes]]: Scopes[3]
+        //
+        // console.log(haha().next());   // 调用这个 也就是上边的 遍历器 && 迭代器
+        // // {value: "res", done: false}
+        // // done: false
+        // // value: "res"
+        // // __proto__: Object
+        // // 例
+        // document.body.innerHTML = '<img src="./Generator.jpg">'
+    /*************************************************************************************************************************************/
+         // 新的集合类型 set 唯一的数组，不会有重复的严元素，不能通过索引来获取其中的元素
+            const names = new Set();
+            names.add('ming');
+            names.add('hong');
+            names.add('lan');
+            names.add('xiaobo'); // add()  添加的方法
+            // names.add('xiaobo'); // 当你继续重复添加的 时候，也加入不进去了
+        console.log(names);
+        // 输出
 
-        console.log(haha().next());   // 调用这个 也就是上边的 遍历器 && 迭代器
-        // {value: "res", done: false}
-        // done: false
-        // value: "res"
-        // __proto__: Object
+        // Set(4) {"ming", "hong", "lan", "xiaobo"}
+        // [[Entries]]
+        // 0: "ming"
+        // 1: "hong"
+        // 2: "lan"
+        // 3: "xiaobo"
+        // size: 4
+        // __proto__: Set
+        // 获取长度就要用
+        console.log(names.size);
+        // 删除 其中 一个用  delete 成功 会返回 true 失败会返回 false
+         console.log(names.delete('l实打实n'));
+         // 检测其中是否 存在 摸个元素 has 存在 返回 true 不存在 返回 false
+        console.log(names.has('lan'));
+        // // 删除所有元素
+        // names.clear();
+        // console.log(names);
+        //  方法 values SetIterator 部署 了  Iterator 遍历器的方法
+        console.log(names.values());
+        const namesV = names.values();
+        console.log(namesV.next());
+        // 可以用 (for of) && (forEach) 方法 来进行遍历了 forEach 方法和数组的一样
+        for (let name of names){
+            console.log(name);
+        }
+        const aaaa = new Set(['1111','11','11','2']); // 例子 数组去重
+        console.log(aaaa);  bbbb = [...aaaa]
+        Array.from()
+
+
+
+
 
 
         /*************************************************************************************************************************************/
-         /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
          /*************************************************************************************************************************************/
 
 
 
     </script>
+
 </body>
 </html>
